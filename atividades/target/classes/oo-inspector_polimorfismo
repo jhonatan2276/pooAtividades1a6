@@ -1,0 +1,122 @@
+# Herança
+
+## Definições
+> referenciar origem: artigo, livro, revista
+Polimorfismo é a capacidade de um objeto ser referenciado de várias formas
+isso se refere à maneira de como referimos a ele, pois o tipo dele não muda.
+
+## Exemplos
+> referenciar origem: repositório, site, jre
+permite ao desenvolvedor usar o mesmo elemento de formas diferentes
+```
+[1]=============================================================================
+public abstract class Game {
+  abstract void iniciar(String pass); 
+}
+@Override
+void iniciar(String pass) {
+    this.pass = pass;
+}
+```
+```
+[2]=============================================================================
+ public class calculadora{
+   public int calcula( int a, int b){
+      return a+b;
+    }
+    public double calcula( double a, double b){
+       return a+b;
+    }
+     public String calcula( String a, String b){
+       return a+b;
+  }
+```
+```
+[3]=============================================================================
+public interface Conexao{
+   public void conectar();
+}
+public class DialUp implements Conexao{
+   public void conectar(){
+      System.out.println("Modem discando...");
+   }
+}
+public class Adsl implements Conexao{
+   public void conectar(){
+      System.out.println("Adsl conectado...");
+   }
+}
+Conexao con = new DialUp();
+con.conectar();
+con = new Adsl();
+con.conectar();
+```
+```
+[4]=============================================================================
+public interface Carro{
+   public void acelerar();
+}
+public Ferrari implements Carro{
+   public void acelerar(){
+      System.out.println("Ferrari acelerando...");
+   }
+}
+public Fusca implemets Carro{
+   public void acelerar(){
+      System.out.println("Fusca tentando acelerar...");
+   }
+}
+Carro c = new Ferrari();
+c.acelerar();
+c = new Fusca();
+c.acelerar();
+```
+```
+[5]=============================================================================
+String texto;
+texto = "Apenas uma String";
+CharSequence texto;
+texto = "Apenas uma String";
+texto = new StringBuffer("Ou um StringBuffer");
+texto = new StringBuilder("Ou um StringBuilder");
+
+## Ferramenta
+> checklist ou tabela
+
+[2]
+Está reaproveitando a funcão com parametros e tipos diferente para retornar a soma dos dois equivalentes.
+
+Sobrescrever a superclasse para passar como parametro a senha
+Desta forma conseguimos criar outras classes que utilizam essa senha apenas reescrevendo os métodos necessários.
+Isso serve para os exemplos de funcionario, gerente, secretaria aonde a classe funcionário é a super classe, aonde não será necessário
+criar uma nova classe gerente e/ou secretaria com os atributos de funcionario, basta criar o extend.
+
+[3]
+O tipo da variavel é Conexao, mas não referencia um objeto do tipo Conexao, mas sim um objeto DialUp ou Adsl, 
+Quando as classes ADSL e DIALUP são criadas as duas podem utilizar o metodo conectar que é um exemplo claro de polimorfismo.
+
+[4]
+O tipo da variavel é carro, mas não referencia um objeto do tipo carro, mas sim um objeto Ferrari ou Fusca, 
+Quando as classes Ferrari e Fusca são criadas as duas podem utilizar o metodo acelerar que é um exemplo claro de polimorfismo.
+
+[5]
+A varável texto é polimórfica já que CharSequence é uma interface, o que, por definição, significa que é possivel que exista
+um conjunto de possibilidades para os objetos que podem ser atribuidos a essa variável.
+
+## Inspeção
+As Classes 3,4,5 utilizam metodos polimórficos, que permite atribuir objetos do tipo classes, interfaces diferente á uma
+mesma variável, isso é possivel quando a relação de hiearquia entre o tipo da variável e o tipo do objeto, 
+de tal modo que o tipo da variável seja igual ou mais abstrato que o tipo do objeto.
+
+As classes 1 e 2 apenas utiliza parametros para passar para o metodo.
+
+> 5 classes devem ser inspecionadas com a ferramenta
+> referenciar origem
+```
+[1] https://www.caelum.com.br/apostila-java-orientacao-objetos/heranca-reescrita-e-polimorfismo/#7-1-repetindo-codigo
+[2] http://www.devmedia.com.br/sobrecarga-e-sobreposicao-de-metodos-em-orientacao-a-objetos/33066
+[3] http://www.guj.com.br/t/exemplos-praticos-de-polimorfismo/65598/3 conexao
+[4] http://www.guj.com.br/t/exemplos-praticos-de-polimorfismo/65598/3 carro
+[5] http://www.javabuilding.com/principles/polimorfismo.html
+```
+
